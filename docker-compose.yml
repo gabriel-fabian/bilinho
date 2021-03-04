@@ -1,0 +1,30 @@
+version: '3.0'
+
+services:
+  web:
+    build: .
+    image: bilinho
+    restart: "no"
+    environment:
+      - DBHOST=db
+      - DBUSER=postgres
+      - DBPASS=password
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    restart: "no"
+    ports:
+      - 5429:5432
+    environment:
+      POSTGRES_DB: bilinho_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgresdb:/var/lib/postgresql/data/
+
+volumes:
+  postgresdb:
