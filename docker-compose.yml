@@ -18,7 +18,7 @@ services:
     image: postgres
     restart: "no"
     ports:
-      - 5429:5432
+      - 5432:5432
     environment:
       POSTGRES_DB: bilinho_development
       POSTGRES_USER: postgres

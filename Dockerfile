@@ -1,9 +1,13 @@
 FROM ruby:3.0
 
-RUN apt-get update -qq && apt-get install -y postgresql-client
+RUN apt-get update \
+    && apt-get install -y \
+    postgresql-client \
+    vim
+
 RUN bundle config --global frozen 1
 
-WORKDIR /app
+WORKDIR /bilinho
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
