@@ -47,3 +47,4 @@ class Api::V1::EducationalInstitutionsController < Api::V1::ApiController
   end
 
 end
+
