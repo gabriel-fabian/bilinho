@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace 'v1' do
       resources :educational_institutions
       resources :students
+      resources :enrollments
     end
   end
 

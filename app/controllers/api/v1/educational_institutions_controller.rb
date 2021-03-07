@@ -43,7 +43,11 @@ class Api::V1::EducationalInstitutionsController < Api::V1::ApiController
 
   private
   def institution_params
-    params.permit(:name, :cnpj, :institution_type)
+    params.permit(
+      :name,
+      :cnpj,
+      :institution_type
+    )
   end
 
 end
