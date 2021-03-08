@@ -12,6 +12,7 @@ class Student < ApplicationRecord
     numericality: { only_integer: true}
 
   validates :phone,
+    allow_blank: true,
     numericality: { only_integer: true}
 
   enum gender: {
