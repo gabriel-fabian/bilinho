@@ -2,7 +2,8 @@ class Api::V1::EducationalInstitutionsController < Api::V1::ApiController
 
   def index
 
-    @institutions = EducationalInstitution.order('created_at DESC');
+    @institutions = EducationalInstitution.order('created_at ASC').page(params[:page]);
+
     render json: { 
       status: 'SUCCESS',
       message: 'Institutions Loaded',

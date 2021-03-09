@@ -2,7 +2,7 @@ class Api::V1::StudentsController < Api::V1::ApiController
 
   def index
 
-    @students = Student.order('created_at DESC')
+    @students = Student.order('created_at ASC').page(params[:page])
 
     render json: {
       status: 'SUCCESS',

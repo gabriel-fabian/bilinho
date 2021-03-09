@@ -2,7 +2,7 @@ class Api::V1::EnrollmentsController < Api::V1::ApiController
 
   def index
 
-    @enrollments = Enrollment.order('created_at DESC')
+    @enrollments = Enrollment.order('created_at ASC').page(params[:page])
 
     render json: {
       status: 'SUCCESS',

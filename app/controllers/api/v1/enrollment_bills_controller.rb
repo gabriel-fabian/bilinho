@@ -3,7 +3,7 @@ class Api::V1::EnrollmentBillsController < Api::V1::ApiController
 
   def index
 
-    @enrollment_bills = EnrollmentBill.order('created_at DESC')
+    @enrollment_bills = EnrollmentBill.order('created_at ASC').page(params[:page])
 
     render json: {
       status: 'SUCCES',
