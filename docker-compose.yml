@@ -6,9 +6,11 @@ services:
     image: bilinho
     restart: "no"
     environment:
-      DBHOST: "${DBHOST}"
-      DBUSER: "${DBUSER}"
-      DBPASS: "${DBPASS}"
+      - DBHOST
+      - DBUSER
+      - DBPASS
+      - DEVDB
+      - TESTDB
     ports:
       - 3000:3000
     depends_on:
@@ -20,9 +22,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_DB: "${DEVDB}"
-      POSTGRES_USER: "${DBUSER}"
-      POSTGRES_PASSWORD: "${DBPASS}"
+      - DEVDB
+      - DBUSER
+      - DBPASS
     volumes:
       - postgresdb:/var/lib/postgresql/data/
 
