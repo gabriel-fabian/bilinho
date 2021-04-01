@@ -11,7 +11,7 @@ class Enrollment < ApplicationRecord
     presence: true
 
   validates :full_price,
-    numericality: { greater_than_or_equal_to: 1 }
+    numericality: { greater_than: 0 }
 
   validates :installments,
     numericality: { greater_than_or_equal_to: 1 }
@@ -30,11 +30,11 @@ class Enrollment < ApplicationRecord
 
     date = self.created_at
 
-    if self.payday < date.day
+    if self.payday <= date.day
       date = date.next_month
     end
 
-    (1..self.installments).each do |installment|
+    (1..self.installments).each do
       day_to_pay = self.payday
       last_day_in_month = Date.new(date.year, date.month, -1).day
 
